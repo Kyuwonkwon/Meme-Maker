@@ -1,11 +1,15 @@
 const colorOptions = Array.from(
   document.getElementsByClassName("color-option")
 );
+const dstroyBtn = document.getElementById("destroy-btn");
 const modeBtn = document.getElementById("mode-btn");
 const lineWidth = document.getElementById("line-width");
 const color = document.getElementById("color");
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
+
+const CANVAS_WIDTH = canvas.width;
+const CANVAS_HEGHIT = canvas.height;
 
 canvas.width = 800;
 canvas.height = 800;
@@ -59,8 +63,13 @@ function onModeClick() {
 
 function onCanvasClick() {
   if (isFilling) {
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEGHIT);
   }
+}
+
+function onDestroyClick() {
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEGHIT);
 }
 
 canvas.addEventListener("click", onCanvasClick);
