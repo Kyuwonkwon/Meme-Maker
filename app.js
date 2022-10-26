@@ -1,18 +1,18 @@
 const colorOptions = Array.from(
   document.getElementsByClassName("color-option")
 );
-const dstroyBtn = document.getElementById("destroy-btn");
+const destroyBtn = document.getElementById("destroy-btn");
 const modeBtn = document.getElementById("mode-btn");
 const lineWidth = document.getElementById("line-width");
 const color = document.getElementById("color");
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
-const CANVAS_WIDTH = canvas.width;
-const CANVAS_HEGHIT = canvas.height;
-
 canvas.width = 800;
 canvas.height = 800;
+
+const CANVAS_WIDTH = canvas.width;
+const CANVAS_HEGHIT = canvas.height;
 ctx.lineWidth = lineWidth.value;
 ctx.color = color.value;
 let isPainting = false;
@@ -83,3 +83,4 @@ color.addEventListener("change", onColorChange);
 colorOptions.forEach((color) => color.addEventListener("click", onColorClick));
 
 modeBtn.addEventListener("click", onModeClick);
+destroyBtn.addEventListener("click", onDestroyClick);
