@@ -68,8 +68,10 @@ function onCanvasClick() {
 }
 
 function onDestroyClick() {
+  const temp = ctx.fillStyle;
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEGHIT);
+  ctx.fillStyle = temp;
 }
 
 canvas.addEventListener("click", onCanvasClick);
