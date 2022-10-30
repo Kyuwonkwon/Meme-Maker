@@ -9,9 +9,15 @@ const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
 function canvasWidth() {
-  canvas.width = window.innerwidth * 0.9;
-  canvas.height = canvas.width;
-  console.log(canvas.width, canvas.height, window.innerWidth);
+  if (canvas.width <= canvas.height) {
+    canvas.width = window.innerWidth * 0.6;
+    canvas.height = canvas.width;
+  } else if (canvas.width > canvas.height) {
+    canvas.height = window.innerHeight * 0.6;
+    canvas.width = canvas.height;
+  }
+
+  console.log(canvas.width, canvas.height);
 }
 canvasWidth();
 const CANVAS_WIDTH = canvas.width;
