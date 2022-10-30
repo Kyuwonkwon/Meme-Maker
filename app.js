@@ -22,7 +22,7 @@ function canvasSize() {
     canvas.width = canvas.height;
   }
 }
-console.log(window.innerHeight, window.innerWidth);
+
 canvasSize();
 const CANVAS_WIDTH = canvas.width;
 const CANVAS_HEGHIT = canvas.height;
