@@ -8,9 +8,12 @@ const color = document.getElementById("color");
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
-canvas.width = 800;
-canvas.height = 800;
-
+function canvasWidth() {
+  canvas.width = window.innerwidth * 0.9;
+  canvas.height = canvas.width;
+  console.log(canvas.width, canvas.height, window.innerWidth);
+}
+canvasWidth();
 const CANVAS_WIDTH = canvas.width;
 const CANVAS_HEGHIT = canvas.height;
 ctx.lineWidth = lineWidth.value;
@@ -86,3 +89,5 @@ colorOptions.forEach((color) => color.addEventListener("click", onColorClick));
 
 modeBtn.addEventListener("click", onModeClick);
 destroyBtn.addEventListener("click", onDestroyClick);
+
+window.addEventListener("resize", canvasWidth);
