@@ -7,19 +7,23 @@ const lineWidth = document.getElementById("line-width");
 const color = document.getElementById("color");
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
+let windowWidth;
+let windowHeight;
 
-function canvasWidth() {
-  if (canvas.width <= canvas.height) {
-    canvas.width = window.innerWidth * 0.6;
+function canvasSize() {
+  windowHeight = window.innerHeight;
+  windowWidth = window.innerWidth;
+
+  if (windowWidth <= windowHeight) {
+    canvas.width = windowWidth * 0.6;
     canvas.height = canvas.width;
-  } else if (canvas.width > canvas.height) {
-    canvas.height = window.innerHeight * 0.6;
+  } else if (windowWidth > windowHeight) {
+    canvas.height = windowHeight * 0.6;
     canvas.width = canvas.height;
   }
-
-  console.log(canvas.width, canvas.height);
 }
-canvasWidth();
+console.log(window.innerHeight, window.innerWidth);
+canvasSize();
 const CANVAS_WIDTH = canvas.width;
 const CANVAS_HEGHIT = canvas.height;
 ctx.lineWidth = lineWidth.value;
@@ -96,4 +100,4 @@ colorOptions.forEach((color) => color.addEventListener("click", onColorClick));
 modeBtn.addEventListener("click", onModeClick);
 destroyBtn.addEventListener("click", onDestroyClick);
 
-window.addEventListener("resize", canvasWidth);
+window.addEventListener("resize", canvasSize);
