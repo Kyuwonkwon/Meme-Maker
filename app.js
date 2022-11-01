@@ -9,6 +9,7 @@ const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 let windowWidth;
 let windowHeight;
+const palette = document.querySelectorAll(".color-option");
 
 function canvasSize() {
   windowHeight = window.innerHeight;
@@ -16,9 +17,13 @@ function canvasSize() {
 
   if (windowWidth <= windowHeight) {
     canvas.width = windowWidth * 0.6;
+    palette.width = windowWidth * 0.05;
+    palette.height = windowWidth * 0.05;
     canvas.height = canvas.width;
   } else if (windowWidth > windowHeight) {
     canvas.height = windowHeight * 0.6;
+    palette.width = windowHeight * 0.05;
+    palette.height = windowHeight * 0.05;
     canvas.width = canvas.height;
   }
 }
